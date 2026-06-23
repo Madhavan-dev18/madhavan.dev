@@ -156,6 +156,7 @@ a {
   padding: 24px;
   display: flex;
   flex-direction: column;
+  gap: 64px;
 }
 
 /* Top Navigation */
