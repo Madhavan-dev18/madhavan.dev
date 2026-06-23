@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
-
-import { Search, Bell } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import './index.css';
 
 import Dashboard from './components/Dashboard';
@@ -12,6 +11,7 @@ import Contact from './components/Contact';
 
 export default function App() {
   const vantaRef = useRef<HTMLDivElement>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     let effect: any = null;
@@ -52,35 +52,30 @@ export default function App() {
       <div className="dashboard-layout">
         {/* TOPBAR */}
         <header className="topbar">
-          <div className="brand">
-            <div style={{
-              width: '36px',
-              height: '36px',
-              borderRadius: '8px',
-              overflow: 'hidden',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: 'var(--shadow-brutal)'
-            }}>
-              <img src="/logo.png" alt="Logo" style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transform: 'scale(1.3)'
-              }} />
+          <div className="brand" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{
+                width: '36px', height: '36px', borderRadius: '8px', overflow: 'hidden', display: 'flex',
+                alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-brutal)'
+              }}>
+                <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.3)' }} />
+              </div>
+              MADHAVAN S.
             </div>
-            MADHAVAN S.
+            
+            <button className="mobile-menu-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} style={{ color: '#fff', fontSize: '24px', background: 'transparent', border: 'none', cursor: 'pointer' }}>
+              {mobileMenuOpen ? <X /> : <Menu />}
+            </button>
           </div>
           
-          <nav className="nav-group">
-            <a href="#dashboard" className="nav-item">Overview</a>
-            <a href="#projects" className="nav-item">Projects</a>
-            <a href="#experience" className="nav-item">Experience</a>
-            <a href="#skills" className="nav-item">Skills</a>
-            <a href="#repos" className="nav-item">Repos</a>
-            <a href="#certificates" className="nav-item">Certs</a>
-            <a href="#contact" className="nav-item">Contact</a>
+          <nav className={`nav-group ${mobileMenuOpen ? 'mobile-open' : ''}`}>
+            <a href="#dashboard" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Overview</a>
+            <a href="#projects" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+            <a href="#experience" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Experience</a>
+            <a href="#skills" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Skills</a>
+            <a href="#repos" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Repos</a>
+            <a href="#certificates" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Certs</a>
+            <a href="#contact" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           </nav>
           
           <div className="topbar-right">
@@ -93,14 +88,7 @@ export default function App() {
 
         {/* MAIN CONTENT */}
         <main className="main-content">
-          <div className="top-nav">
-            <div style={{fontWeight: 600, fontSize: '14px', letterSpacing: '0.05em'}}>MADHAVAN-PORTFOLIO / SYS-STATUS: ONLINE</div>
-            <div style={{display: 'flex', gap: '16px'}}>
-              <Search size={20} />
-              <Bell size={20} />
-            </div>
-          </div>
-          
+          <div style={{ fontSize: '13px', color: 'var(--fg-muted)', marginBottom: '8px' }}>madhavan-dev18 / portfolio</div>
           <Dashboard />
           <Projects />
           <Experience />

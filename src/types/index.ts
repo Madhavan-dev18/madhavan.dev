@@ -24,6 +24,14 @@ export interface Experience {
   btnColor: string;
 }
 
+export interface Repo {
+  name: string;
+  desc: string;
+  lang: string;
+  color: string;
+  stars: number;
+}
+
 export interface SkillGroup {
   category: string;
   items: string[];

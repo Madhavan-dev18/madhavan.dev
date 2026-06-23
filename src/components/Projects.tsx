@@ -16,19 +16,24 @@ export default function Projects() {
               <div className="project-date">{proj.date}</div>
             </div>
             <div className="project-card-title">{proj.name}</div>
-            <div className="project-tech">
+            <div className="project-tech" style={{ marginBottom: '12px' }}>
               {proj.tech.map(t => <span className="tech-tag" style={{ backgroundColor: proj.color }} key={t}>{t}</span>)}
             </div>
 
+            {/* Always show first 120 chars, expand for full */}
+            <div style={{ color: 'var(--fg-muted)', fontSize: '14px', lineHeight: '1.6', marginBottom: '8px' }}>
+              {proj.desc.substring(0, 120)}...
+            </div>
+
             {expandedProject === proj.id && (
-              <div className="project-details" style={{ marginTop: '16px', color: 'var(--fg-muted)', fontSize: '14px', lineHeight: '1.6' }}>
-                {proj.desc}
+              <div style={{ color: 'var(--fg-muted)', fontSize: '14px', lineHeight: '1.6', marginTop: '4px' }}>
+                {proj.desc.substring(120)}
               </div>
             )}
 
             <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
               <button className="btn-primary" onClick={() => toggleProject(proj.id)} style={{ width: 'fit-content' }}>
-                {expandedProject === proj.id ? 'Collapse' : 'Expand Details'}
+                {expandedProject === proj.id ? 'Hide Deep Dive' : 'Read Technical Deep Dive ↓'}
               </button>
               <a href={proj.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ backgroundColor: '#fff', width: 'fit-content' }}>View Live ↗</a>
             </div>

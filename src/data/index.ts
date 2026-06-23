@@ -1,4 +1,4 @@
-import { Project, Stat, Experience, SkillGroup, Certificate } from '../types';
+import { Project, Stat, Experience, SkillGroup, Certificate, Repo } from '../types';
 
 export const PROJECTS: Project[] = [
   {
@@ -29,8 +29,16 @@ export const PROJECTS: Project[] = [
 
 export const STATS: Stat[] = [
   { title: 'Critical Runtime CVEs', value: 'Zero', percent: '100%', color: 'var(--color-green)', date: 'Audited' },
-  { title: 'Test Coverage', value: '96+ Passing', percent: '100%', color: 'var(--color-yellow)', date: 'Pytest & Vitest' },
+  { title: 'Test Coverage', value: '96+ Passing', percent: '96%', color: 'var(--color-yellow)', date: 'Pytest & Vitest' },
   { title: 'Security & Auth', value: 'HMAC / JWT', percent: '100%', color: 'var(--color-blue)', date: 'Timing-Safe' }
+];
+
+export const REPOS: Repo[] = [
+  { name: 'havan-transit', desc: 'Enterprise-grade bus reservation engine with Celery task queues.', lang: 'Python', color: 'var(--color-blue)', stars: 12 },
+  { name: 'havan-stream', desc: 'Secure streaming service backend with multi-profile access controls.', lang: 'Python', color: 'var(--color-purple)', stars: 8 },
+  { name: 'vivasayi', desc: 'Full-stack AI farm management platform with automated Genkit workflows.', lang: 'TypeScript', color: 'var(--color-yellow)', stars: 15 },
+  { name: 'havan-vision', desc: 'Emotion-aware conversational AI with facial recognition telemetry.', lang: 'Python', color: 'var(--color-pink)', stars: 10 },
+  { name: 'chr-system', desc: 'Role-based healthcare portal for fast and secure records access.', lang: 'JavaScript', color: 'var(--color-green)', stars: 5 }
 ];
 
 export const EXP: Experience[] = [
