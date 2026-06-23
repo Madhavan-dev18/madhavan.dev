@@ -20,16 +20,19 @@ export default function Projects() {
               {proj.tech.map(t => <span className="tech-tag" style={{ backgroundColor: proj.color }} key={t}>{t}</span>)}
             </div>
 
-            {/* Always show first 120 chars, expand for full */}
-            <div style={{ color: 'var(--fg-muted)', fontSize: '14px', lineHeight: '1.6', marginBottom: '8px' }}>
-              {proj.desc.substring(0, 120)}...
+            {/* Elegant CSS truncation instead of raw substring */}
+            <div style={{ 
+              color: 'var(--fg-muted)', 
+              fontSize: '14px', 
+              lineHeight: '1.6', 
+              marginBottom: '8px',
+              display: expandedProject === proj.id ? 'block' : '-webkit-box',
+              WebkitLineClamp: expandedProject === proj.id ? 'unset' : 3,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden'
+            }}>
+              {proj.desc}
             </div>
-
-            {expandedProject === proj.id && (
-              <div style={{ color: 'var(--fg-muted)', fontSize: '14px', lineHeight: '1.6', marginTop: '4px' }}>
-                {proj.desc.substring(120)}
-              </div>
-            )}
 
             <div style={{ display: 'flex', gap: '12px', marginTop: '24px' }}>
               <button className="btn-primary" onClick={() => toggleProject(proj.id)} style={{ width: 'fit-content' }}>
