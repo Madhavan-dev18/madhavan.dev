@@ -7,7 +7,7 @@ export default function Contact() {
       <h2 className="section-title" style={{ marginBottom: 0, width: '100%' }}>Contact</h2>
       <div className="contact-card" style={{ margin: '0 auto', width: '100%' }}>
         <h2>Get in Touch</h2>
-        <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+        <p>Final-year B.Sc. CS student at KMG College, Vellore. Looking for full-stack or AI engineering roles starting mid-2026. Strongest in Django + React — ask me about the bus booking concurrency proof.</p>
         
         <div className="contact-details">
           <div className="contact-item">

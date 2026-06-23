@@ -1,4 +1,4 @@
-import { Project, Stat, Experience, SkillGroup, Certificate, Repo } from '../types';
+import { Project, Stat, Experience, SkillGroup, Certificate } from '../types';
 
 export const PROJECTS: Project[] = [
   {
@@ -22,8 +22,8 @@ export const PROJECTS: Project[] = [
   {
     id: '04', name: 'Havan Streaming Service', date: 'Jun 2026',
     live: 'https://github.com/Madhavan-dev18/havan-stream',
-    tech: ['Django', 'Python', 'React', 'HLS'], color: 'var(--color-purple)',
-    desc: "Engineered a robust streaming service backend emphasizing multi-profile account architecture. Implemented secure PIN-profile logic consistently across Django models, views, and serializers. Validated core functionality—including authentication, secure profiles, watchlists, and viewing history—with 15 comprehensive Pytest suites."
+    tech: ['Django REST', 'React 19', 'HLS', 'PostgreSQL'], color: 'var(--color-purple)',
+    desc: "Engineered a video streaming platform with HLS chunk delivery and m3u8 manifest generation for adaptive bitrate playback. Implemented a multi-profile PIN architecture with secure access control across Django models, views, and serializers. Validated authentication, profiles, watchlists, and viewing history with 15 Pytest suites."
   }
 ];
 
@@ -33,13 +33,6 @@ export const STATS: Stat[] = [
   { title: 'Security & Auth', value: 'HMAC / JWT', percent: '100%', color: 'var(--color-blue)', date: 'Timing-Safe' }
 ];
 
-export const REPOS: Repo[] = [
-  { name: 'havan-transit', desc: 'Enterprise-grade bus reservation engine with Celery task queues.', lang: 'Python', color: 'var(--color-blue)', stars: 12 },
-  { name: 'havan-stream', desc: 'Secure streaming service backend with multi-profile access controls.', lang: 'Python', color: 'var(--color-purple)', stars: 8 },
-  { name: 'vivasayi', desc: 'Full-stack AI farm management platform with automated Genkit workflows.', lang: 'TypeScript', color: 'var(--color-yellow)', stars: 15 },
-  { name: 'havan-vision', desc: 'Emotion-aware conversational AI with facial recognition telemetry.', lang: 'Python', color: 'var(--color-pink)', stars: 10 },
-  { name: 'chr-system', desc: 'Role-based healthcare portal for fast and secure records access.', lang: 'JavaScript', color: 'var(--color-green)', stars: 5 }
-];
 
 export const EXP: Experience[] = [
   { date: 'May 2025 - Jun 2025', title: 'Python Developer Intern', desc: 'Engineered Django-based reservation system with SQLite. Implemented complete session flows, relational ORM schemas, server-side validation, and CSRF protection.', label: 'Nextgen Tech', btnColor: 'var(--color-purple)' },
@@ -47,9 +40,9 @@ export const EXP: Experience[] = [
 ];
 
 export const SKILLS: SkillGroup[] = [
-  { category: 'Languages & Backend', items: ['TypeScript', 'Python', 'Next.js', 'Django REST', 'Flask', 'Celery', 'Redis'], color: 'var(--color-blue)' },
+  { category: 'Languages & Backend', items: ['TypeScript', 'Python', 'Django REST', 'Flask', 'Celery', 'Redis'], color: 'var(--color-blue)' },
   { category: 'Data & Cloud', items: ['Supabase', 'Neon PostgreSQL', 'Firebase', 'SQLite', 'GitHub Actions'], color: 'var(--color-green)' },
-  { category: 'Frontend', items: ['React 19', 'Tailwind CSS', 'Radix UI', 'Zod', 'PWA'], color: 'var(--color-purple)' },
+  { category: 'Frontend', items: ['Next.js', 'React 19', 'Tailwind CSS', 'Radix UI', 'Zod', 'PWA'], color: 'var(--color-purple)' },
   { category: 'AI & Vision', items: ['Google Gemini', 'Genkit', 'DeepFace', 'OpenCV', 'Prompt Eng'], color: 'var(--color-yellow)' },
   { category: 'Testing & Security', items: ['Vitest', 'RTL', 'CVE Remediation', 'Concurrency Control', 'RLS'], color: 'var(--color-pink)' }
 ];

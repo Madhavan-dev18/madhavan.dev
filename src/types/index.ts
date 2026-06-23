@@ -22,15 +22,7 @@ export interface Experience {
   desc: string;
   label: string;
   btnColor: string;
-}
 
-export interface Repo {
-  name: string;
-  desc: string;
-  lang: string;
-  color: string;
-  stars: number;
-}
 
 export interface SkillGroup {
   category: string;
