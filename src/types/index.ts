@@ -22,7 +22,7 @@ export interface Experience {
   desc: string;
   label: string;
   btnColor: string;
-
+}
 
 export interface SkillGroup {
   category: string;
