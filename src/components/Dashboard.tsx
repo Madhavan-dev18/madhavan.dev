@@ -7,7 +7,7 @@ export default function Dashboard() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '-16px' }}>
         <div style={{ width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#86efac', boxShadow: '0 0 0 3px #86efac44' }} />
         <span style={{ fontSize: '13px', fontWeight: 600, color: '#666', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-          Available for placement · Open to work
+          Available for placement · Open to work <span style={{ marginLeft: '12px', color: 'var(--color-purple)' }}>Currently exploring: LangGraph / RAG pipelines</span>
         </span>
       </div>
 
@@ -57,6 +57,8 @@ export default function Dashboard() {
         <a href="#projects" className="btn-primary">View Projects ↓</a>
         <a href="#contact" className="btn-primary" style={{ backgroundColor: '#fff' }}>Get in Touch →</a>
         <a href="https://github.com/Madhavan-dev18" target="_blank" rel="noreferrer" className="btn-primary" style={{ backgroundColor: '#fff' }}>GitHub ↗</a>
+        <a href="https://linkedin.com/in/madhavan-shivakumar-dev" target="_blank" rel="noreferrer" className="btn-primary" style={{ backgroundColor: '#fff' }}>LinkedIn ↗</a>
+        <a href="/Madhavan_S_Resume.pdf" target="_blank" rel="noreferrer" className="btn-primary" style={{ backgroundColor: 'var(--color-green)' }}>Download Resume ↓</a>
       </div>
 
     </section>

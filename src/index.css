@@ -13,17 +13,38 @@
   --border-color: #111111;
   --border-light: #e5e5e5;
   
-  --color-purple: #b794f4;
-  --color-blue: #93c5fd;
-  --color-yellow: #fde047;
-  --color-green: #86efac;
-  --color-pink: #f9a8d4;
+  --color-purple: #8b5cf6;
+  --color-blue: #06b6d4;
+  --color-yellow: #fbbf24;
+  --color-green: #4ade80;
+  --color-pink: #ec4899;
 
   --shadow-brutal: 3px 3px 0px #111111;
   --shadow-brutal-hover: 6px 6px 0px #111111;
   
   --font-sans: 'Outfit', sans-serif;
   --font-display: 'Syne', sans-serif;
+}
+
+[data-theme='dark'] {
+  --bg-main: #111111;
+  --bg-sidebar: #0a0a0a;
+  --bg-card: #1c1c1c;
+  
+  --fg-main: #eeeeee;
+  --fg-muted: #aaaaaa;
+  
+  --border-color: #ffffff;
+  --border-light: #333333;
+  
+  --shadow-brutal: 3px 3px 0px #ffffff;
+  --shadow-brutal-hover: 6px 6px 0px #ffffff;
+}
+
+[data-theme='dark'] .btn-primary:hover,
+[data-theme='dark'] .slider-card-btn:hover,
+[data-theme='dark'] .project-live:hover {
+  filter: brightness(1.2) !important;
 }
 
 html {
@@ -190,7 +211,7 @@ a {
   color: #000;
   font-weight: 600;
   padding: 10px 24px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   box-shadow: var(--shadow-brutal);
   display: flex;
   align-items: center;
@@ -202,6 +223,7 @@ a {
 .btn-primary:hover {
   transform: translate(-2px, -2px);
   box-shadow: var(--shadow-brutal-hover);
+  filter: brightness(0.9);
 }
 
 .btn-primary:active {
@@ -233,7 +255,7 @@ a {
 .stat-card {
   padding: 24px;
   background-color: var(--bg-main);
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 12px;
   box-shadow: var(--shadow-brutal);
   display: flex;
@@ -304,7 +326,7 @@ a {
 .project-icon {
   width: 24px;
   height: 24px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -345,7 +367,7 @@ a {
   font-size: 12px;
   font-weight: 700;
   padding: 4px 10px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   background-color: var(--color-yellow);
   border-radius: 4px;
   color: #000;
@@ -386,7 +408,7 @@ a {
 
 .side-card {
   background-color: var(--bg-card);
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: 24px;
   box-shadow: var(--shadow-brutal);
   border-radius: 4px;
@@ -422,7 +444,7 @@ a {
   font-size: 12px;
   font-weight: 700;
   padding: 6px 16px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 4px;
   display: inline-block;
   box-shadow: 2px 2px 0px var(--border-color);
@@ -444,7 +466,7 @@ a {
   font-family: var(--font-display);
   font-size: 24px;
   margin-bottom: 24px;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 3px solid var(--border-color);
   padding-bottom: 12px;
 }
 
@@ -457,7 +479,7 @@ a {
 
 .project-card-large {
   background-color: var(--bg-card);
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: 32px;
   box-shadow: var(--shadow-brutal);
   display: flex;
@@ -492,7 +514,7 @@ a {
 .project-icon-large {
   width: 48px;
   height: 48px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -517,7 +539,7 @@ a {
 
 .skill-group {
   background-color: var(--bg-card);
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: 24px;
   box-shadow: var(--shadow-brutal);
   border-radius: 4px;
@@ -542,7 +564,7 @@ a {
   font-size: 13px;
   font-weight: 600;
   padding: 6px 12px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 100px;
   color: var(--fg-main);
 }
@@ -558,7 +580,7 @@ a {
 .empty-icon {
   width: 80px;
   height: 80px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -575,7 +597,7 @@ a {
 
 .contact-card {
   background-color: var(--bg-card);
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: 32px;
   box-shadow: var(--shadow-brutal);
   border-radius: 4px;
@@ -608,7 +630,7 @@ a {
   align-items: center;
   gap: 16px;
   padding: 16px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 4px;
   font-weight: 600;
 }
@@ -630,7 +652,7 @@ a {
   animation: scrollTrack 30s linear infinite;
 }
 
-.slider-track:hover {
+.slider-track:hover, .slider-track:focus-within {
   animation-play-state: paused;
 }
 
@@ -643,7 +665,7 @@ a {
   min-width: 300px;
   max-width: 300px;
   background-color: var(--bg-card);
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   padding: 24px;
   box-shadow: var(--shadow-brutal);
   border-radius: 4px;
@@ -679,7 +701,7 @@ a {
   font-size: 13px;
   font-weight: 700;
   padding: 8px 16px;
-  border: 2px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 4px;
   display: inline-block;
   text-align: center;
@@ -723,5 +745,11 @@ a {
   }
   .topbar {
     padding: 16px 24px;
+  }
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+  .topbar-right {
+    display: none;
   }
 }

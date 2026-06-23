@@ -1,17 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import './index.css';
 
 import Dashboard from './components/Dashboard';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
-import Repos from './components/Repos';
+
 import Certs from './components/Certs';
 import Contact from './components/Contact';
 
 export default function App() {
   const vantaRef = useRef<HTMLDivElement>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [vantaEffect, setVantaEffect] = useState<any>(null);
 
   useEffect(() => {
     let effect: any = null;
@@ -34,9 +36,10 @@ export default function App() {
           minWidth: 200.00,
           scale: 1.00,
           scaleMobile: 1.00,
-          color: 0xb794f4,
+          color: 0x8b5cf6,
           backgroundColor: 0xfcfaf8
         });
+        setVantaEffect(effect);
       }).catch(err => console.error("Vanta load error:", err));
     }
     
@@ -45,6 +48,26 @@ export default function App() {
       if (effect) effect.destroy();
     }
   }, []);
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      if (vantaEffect) {
+        vantaEffect.setOptions({
+          backgroundColor: 0x111111,
+          color: 0x8b5cf6
+        });
+      }
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (vantaEffect) {
+        vantaEffect.setOptions({
+          backgroundColor: 0xfcfaf8,
+          color: 0x8b5cf6
+        });
+      }
+    }
+  }, [isDarkMode, vantaEffect]);
 
   return (
     <>
@@ -73,12 +96,18 @@ export default function App() {
             <a href="#projects" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Projects</a>
             <a href="#experience" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Experience</a>
             <a href="#skills" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Skills</a>
-            <a href="#repos" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Repos</a>
             <a href="#certificates" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Certs</a>
             <a href="#contact" className="nav-item" onClick={() => setMobileMenuOpen(false)}>Contact</a>
           </nav>
           
           <div className="topbar-right">
+            <button 
+              onClick={() => setIsDarkMode(!isDarkMode)} 
+              style={{ color: '#fff', fontSize: '20px', display: 'flex', alignItems: 'center', padding: '8px', cursor: 'pointer', background: 'transparent', border: 'none' }}
+              title="Toggle Theme"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <div className="user-info">
               <span className="user-name">Madhavan</span>
               <span className="user-role">Full-Stack Dev</span>
@@ -92,7 +121,7 @@ export default function App() {
           <Dashboard />
           <Projects />
           <Experience />
-          <Repos />
+
           <Certs />
           <Contact />
           

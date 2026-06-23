@@ -20,7 +20,7 @@ export const PROJECTS: Project[] = [
     desc: "Developed a composite emotion-aware AI chat assistant. Fused visual telemetry with text sentiment analyzed via HuggingFace DistilRoBERTa transformers, including memory-safe fallback algorithms. Engineered a hard-coded crisis interception engine bypassing the LLM during severe distress. Achieved rigorous coverage with 73 passing tests (62 Pytest, 11 Vitest) across auth, JWT refresh, and core AI flows."
   },
   {
-    id: '04', name: 'Havan Streaming Service', date: 'Jun 2026',
+    id: '04', name: 'Havan Streaming Service', date: 'May 2025',
     live: 'https://github.com/Madhavan-dev18/havan-stream',
     tech: ['Django REST', 'React 19', 'HLS', 'PostgreSQL'], color: 'var(--color-purple)',
     desc: "Engineered a video streaming platform with HLS chunk delivery and m3u8 manifest generation for adaptive bitrate playback. Implemented a multi-profile PIN architecture with secure access control across Django models, views, and serializers. Validated authentication, profiles, watchlists, and viewing history with 15 Pytest suites."
@@ -35,16 +35,16 @@ export const STATS: Stat[] = [
 
 
 export const EXP: Experience[] = [
-  { date: 'May 2025 - Jun 2025', title: 'Python Developer Intern', desc: 'Engineered Django-based reservation system with SQLite. Implemented complete session flows, relational ORM schemas, server-side validation, and CSRF protection.', label: 'Nextgen Tech', btnColor: 'var(--color-purple)' },
-  { date: '2023 - 2026', title: 'B.Sc. Computer Science', desc: 'Thiruvalluvar University. Core coursework in Data Structures, Algorithms, and System Design.', label: 'Education', btnColor: 'var(--color-blue)' }
+  { date: 'May 2025 - Jun 2025', title: 'Python Developer Intern', desc: 'Engineered Django-based reservation system with SQLite.\n• Implemented complete session flows, relational ORM schemas, server-side validation, and CSRF protection.\n• Built secure API endpoints with extensive permission handling.\n• Validated end-to-end functionality utilizing built-in test frameworks.', label: 'Nextgen Tech', btnColor: 'var(--color-purple)' },
+  { date: '2023 - 2026', title: 'B.Sc. Computer Science', desc: 'Thiruvalluvar University. Core coursework in Data Structures, Algorithms, and System Design. CGPA: 8.5/10. Active member of Coding Club.', label: 'Education', btnColor: 'var(--color-blue)' }
 ];
 
 export const SKILLS: SkillGroup[] = [
   { category: 'Languages & Backend', items: ['TypeScript', 'Python', 'Django REST', 'Flask', 'Celery', 'Redis'], color: 'var(--color-blue)' },
   { category: 'Data & Cloud', items: ['Supabase', 'Neon PostgreSQL', 'Firebase', 'SQLite', 'GitHub Actions'], color: 'var(--color-green)' },
   { category: 'Frontend', items: ['Next.js', 'React 19', 'Tailwind CSS', 'Radix UI', 'Zod', 'PWA'], color: 'var(--color-purple)' },
-  { category: 'AI & Vision', items: ['Google Gemini', 'Genkit', 'DeepFace', 'OpenCV', 'Prompt Eng'], color: 'var(--color-yellow)' },
-  { category: 'Testing & Security', items: ['Vitest', 'RTL', 'CVE Remediation', 'Concurrency Control', 'RLS'], color: 'var(--color-pink)' }
+  { category: 'AI & Vision', items: ['Google Gemini', 'Genkit', 'DeepFace', 'OpenCV', 'HuggingFace Transformers'], color: 'var(--color-yellow)' },
+  { category: 'Testing & Security', items: ['Vitest', 'RTL', 'CVE Remediation', 'Locust / Load Testing', 'RLS'], color: 'var(--color-pink)' }
 ];
 
 export const CERTS: Certificate[] = [
