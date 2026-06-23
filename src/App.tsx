@@ -1,8 +1,5 @@
+import { useEffect, useRef } from 'react';
 
-import { useState, useEffect, useRef } from 'react';
-import * as THREE from 'three';
-// @ts-ignore
-import TOPOLOGY from 'vanta/dist/vanta.topology.min';
 import { Search, Bell } from 'lucide-react';
 import './index.css';
 
@@ -15,28 +12,39 @@ import Contact from './components/Contact';
 
 export default function App() {
   const vantaRef = useRef<HTMLDivElement>(null);
-  const [vantaEffect, setVantaEffect] = useState<any>(null);
 
   useEffect(() => {
-    if (!vantaEffect && vantaRef.current) {
-      setVantaEffect(TOPOLOGY({
-        el: vantaRef.current,
-        THREE: THREE,
-        mouseControls: true,
-        touchControls: true,
-        gyroControls: false,
-        minHeight: 200.00,
-        minWidth: 200.00,
-        scale: 1.00,
-        scaleMobile: 1.00,
-        color: 0xb794f4,
-        backgroundColor: 0xfcfaf8
-      }));
+    let effect: any = null;
+    let isMounted = true;
+    
+    if (vantaRef.current) {
+      Promise.all([
+        import('three'),
+        import('vanta/dist/vanta.topology.min')
+      ]).then(([THREE, VantaModule]) => {
+        if (!isMounted) return;
+        const TOPOLOGY = VantaModule.default || VantaModule;
+        effect = TOPOLOGY({
+          el: vantaRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          color: 0xb794f4,
+          backgroundColor: 0xfcfaf8
+        });
+      }).catch(err => console.error("Vanta load error:", err));
     }
+    
     return () => {
-      if (vantaEffect) vantaEffect.destroy();
+      isMounted = false;
+      if (effect) effect.destroy();
     }
-  }, [vantaEffect]);
+  }, []);
 
   return (
     <>

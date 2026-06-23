@@ -22,8 +22,8 @@
   --shadow-brutal: 3px 3px 0px #111111;
   --shadow-brutal-hover: 6px 6px 0px #111111;
   
-  --font-sans: 'Inter', sans-serif;
-  --font-display: 'Space Grotesk', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-display: 'Syne', sans-serif;
 }
 
 html {
@@ -677,4 +677,11 @@ a {
 .slider-card-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 0px 0px 0px var(--border-color);
+}
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
