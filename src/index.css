@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@400;500;600;700&display=swap');
+
 
 :root {
   --bg-main: #fcfaf8;
@@ -686,6 +686,10 @@ a {
 ::view-transition-new(*) {
   animation-duration: 0.25s;
   animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.mobile-menu-btn {
+  display: none;
 }
 
 @media (max-width: 768px) {

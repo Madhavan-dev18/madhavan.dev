@@ -35,7 +35,9 @@ export default function Projects() {
               <button className="btn-primary" onClick={() => toggleProject(proj.id)} style={{ width: 'fit-content' }}>
                 {expandedProject === proj.id ? 'Hide Deep Dive' : 'Read Technical Deep Dive ↓'}
               </button>
-              <a href={proj.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ backgroundColor: '#fff', width: 'fit-content' }}>View Live ↗</a>
+              <a href={proj.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ backgroundColor: '#fff', width: 'fit-content' }}>
+                {proj.live.includes('github') ? 'View Source ↗' : 'View Live ↗'}
+              </a>
             </div>
           </div>
         ))}

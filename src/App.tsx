@@ -58,7 +58,7 @@ export default function App() {
                 width: '36px', height: '36px', borderRadius: '8px', overflow: 'hidden', display: 'flex',
                 alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-brutal)'
               }}>
-                <img src="/logo.png" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover', transform: 'scale(1.3)' }} />
+                <img src="/logo.webp" alt="Logo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               MADHAVAN S.
             </div>

@@ -1,4 +1,3 @@
-import { STATS } from '../data';
 
 export default function Dashboard() {
   return (
