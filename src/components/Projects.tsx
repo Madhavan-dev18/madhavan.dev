@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { ArrowUpRight, Github, ShieldCheck, Sprout, Bus, MessageCircle, PlayCircle } from 'lucide-react';
+import { ArrowUpRight, Github, ShieldCheck, Sprout, Bus, MessageCircle, PlayCircle, ChevronDown } from 'lucide-react';
 import { PROJECTS } from '../data';
 import Reveal from './Reveal';
 import { Project } from '../types';
@@ -9,6 +9,7 @@ const ICONS = { shield: ShieldCheck, sprout: Sprout, bus: Bus, chat: MessageCirc
 
 function Card({ p }: { p: Project }) {
   const Icon = ICONS[p.icon];
+  const [expanded, setExpanded] = useState(false);
   return (
     <div className={`path-card accent-${p.accent}`}>
       <div className="path-card-head">
@@ -17,7 +18,11 @@ function Card({ p }: { p: Project }) {
         {p.featured && <span className="project-flag">Flagship</span>}
       </div>
       <h3 className="project-name">{p.name}</h3>
-      <p className="project-desc">{p.desc}</p>
+      <p className={`project-desc ${expanded ? 'is-expanded' : ''}`}>{p.desc}</p>
+      <button className="desc-toggle" onClick={() => setExpanded(e => !e)} aria-expanded={expanded}>
+        {expanded ? 'Show less' : 'Read more'}
+        <ChevronDown size={13} strokeWidth={2.2} className={expanded ? 'flip' : ''} />
+      </button>
       {p.note && <p className="project-note">{p.note}</p>}
       <div className="project-tech">
         {p.tech.map(t => <span className="tech-pill" key={t}>{t}</span>)}
