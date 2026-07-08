@@ -3,17 +3,13 @@ export interface Project {
   name: string;
   date: string;
   live: string;
+  repo: string;
   tech: string[];
-  color: string;
   desc: string;
-}
-
-export interface Stat {
-  title: string;
-  value: string;
-  percent: string;
-  color: string;
-  date: string;
+  note?: string;
+  featured?: boolean;
+  icon: 'shield' | 'sprout' | 'bus' | 'chat' | 'play';
+  accent: 'blue' | 'green' | 'amber' | 'purple' | 'coral';
 }
 
 export interface Experience {
@@ -21,13 +17,11 @@ export interface Experience {
   title: string;
   desc: string;
   label: string;
-  btnColor: string;
 }
 
 export interface SkillGroup {
   category: string;
   items: string[];
-  color: string;
 }
 
 export interface Certificate {
