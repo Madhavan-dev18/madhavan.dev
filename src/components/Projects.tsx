@@ -43,6 +43,7 @@ function Card({ p }: { p: Project }) {
 }
 
 export default function Projects() {
+  const [filter, setFilter] = useState<'all' | 'web' | 'ai' | 'backend'>('all');
   const trackRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: trackRef, offset: ['start 0.75', 'end 0.35'] });
   const pathLength = useSpring(scrollYProgress, { stiffness: 90, damping: 28, restDelta: 0.001 });
@@ -75,6 +76,34 @@ export default function Projects() {
         </div>
       </Reveal>
 
+      {/* Horizontal scrolling filter pills for mobile */}
+      <div className="project-filters">
+        <button 
+          className={`filter-pill ${filter === 'all' ? 'active' : ''}`}
+          onClick={() => setFilter('all')}
+        >
+          All
+        </button>
+        <button 
+          className={`filter-pill ${filter === 'web' ? 'active' : ''}`}
+          onClick={() => setFilter('web')}
+        >
+          Web Apps
+        </button>
+        <button 
+          className={`filter-pill ${filter === 'ai' ? 'active' : ''}`}
+          onClick={() => setFilter('ai')}
+        >
+          AI &amp; Vision
+        </button>
+        <button 
+          className={`filter-pill ${filter === 'backend' ? 'active' : ''}`}
+          onClick={() => setFilter('backend')}
+        >
+          Backend / APIs
+        </button>
+      </div>
+
       <div className="path-track" ref={trackRef}>
         <svg className="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d={d} className="path-track-bg" vectorEffect="non-scaling-stroke" fill="none" />
@@ -87,16 +116,25 @@ export default function Projects() {
           />
         </svg>
 
-        {PROJECTS.map((p, i) => (
-          <div className={`path-row ${i % 2 === 0 ? 'path-row-left' : 'path-row-right'}`} key={p.id} style={{ '--px': `${points[i].x}%` } as React.CSSProperties}>
-            <Reveal y={28}>
-              <div className={`path-node accent-${p.accent}`} />
-            </Reveal>
-            <Reveal delay={0.08} y={28}>
-              <Card p={p} />
-            </Reveal>
-          </div>
-        ))}
+        {PROJECTS.map((p, i) => {
+          const isVisible = filter === 'all' || 
+            (filter === 'web' && p.tech.some(t => t.toLowerCase().includes('react') || t.toLowerCase().includes('next.js'))) ||
+            (filter === 'ai' && p.tech.some(t => t.toLowerCase().includes('gemini') || t.toLowerCase().includes('genkit') || t.toLowerCase().includes('roberta') || t.toLowerCase().includes('face-api'))) ||
+            (filter === 'backend' && p.tech.some(t => t.toLowerCase().includes('django') || t.toLowerCase().includes('flask') || t.toLowerCase().includes('trpc') || t.toLowerCase().includes('celery') || t.toLowerCase().includes('redis') || t.toLowerCase().includes('postgresql')));
+
+          if (!isVisible) return null;
+
+          return (
+            <div className={`path-row ${i % 2 === 0 ? 'path-row-left' : 'path-row-right'}`} key={p.id} style={{ '--px': `${points[i].x}%` } as React.CSSProperties}>
+              <Reveal y={28}>
+                <div className={`path-node accent-${p.accent}`} />
+              </Reveal>
+              <Reveal delay={0.08} y={28}>
+                <Card p={p} />
+              </Reveal>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

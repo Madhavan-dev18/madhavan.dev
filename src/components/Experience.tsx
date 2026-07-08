@@ -1,6 +1,12 @@
 import { EXP, SKILLS } from '../data';
 import Reveal from './Reveal';
 
+const getInitials = (label: string) => {
+  if (label.toLowerCase().includes('nextgen')) return 'NG';
+  if (label.toLowerCase().includes('education')) return 'ED';
+  return label.substring(0, 2).toUpperCase();
+};
+
 export default function Experience() {
   return (
     <>
@@ -18,7 +24,10 @@ export default function Experience() {
           {EXP.map((e, i) => (
             <Reveal key={i} delay={i * 0.05}>
               <div className="timeline-item">
-                <div className="timeline-date">{e.date}</div>
+                <div className="timeline-date">
+                  <div className="timeline-avatar">{getInitials(e.label)}</div>
+                  <span className="timeline-date-text">{e.date}</span>
+                </div>
                 <div>
                   <h3 className="timeline-title">{e.title}</h3>
                   <div className="timeline-label">{e.label}</div>

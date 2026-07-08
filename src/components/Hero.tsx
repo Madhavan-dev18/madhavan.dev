@@ -25,8 +25,8 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
-        Full-stack &amp; AI engineer. I patched a critical cross-tenant PHI leak in a live EHR
-        platform, closed a Next.js RCE in production, and back both fixes with real test suites —
+        Full-stack &amp; AI engineer. Five shipped projects, one live EHR platform with a patched
+        cross-tenant PHI leak, a closed Next.js RCE, and real test suites behind every claim —
         not just green checkmarks.
       </motion.p>
 
@@ -48,15 +48,24 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.4 }}
       >
         <div className="metric">
-          <span className="metric-value">100%</span>
+          <div className="metric-header">
+            <span className="metric-value">100%</span>
+            <span className="metric-badge badge-green">Secure</span>
+          </div>
           <span className="metric-label">Tenant isolation enforced structurally, guarded by CI regression tests</span>
         </div>
         <div className="metric">
-          <span className="metric-value">100+</span>
+          <div className="metric-header">
+            <span className="metric-value">100+</span>
+            <span className="metric-badge badge-blue">Verified</span>
+          </div>
           <span className="metric-label">Tests written across five shipped projects</span>
         </div>
         <div className="metric">
-          <span className="metric-value">0</span>
+          <div className="metric-header">
+            <span className="metric-value">0</span>
+            <span className="metric-badge badge-green">Zero Vuln</span>
+          </div>
           <span className="metric-label">Critical CVEs left unpatched in production</span>
         </div>
       </motion.div>
