@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { ArrowUpRight, Github, ShieldCheck, Sprout, Bus, MessageCircle, PlayCircle, ChevronDown } from 'lucide-react';
 import { PROJECTS } from '../data';
@@ -10,8 +10,56 @@ const ICONS = { shield: ShieldCheck, sprout: Sprout, bus: Bus, chat: MessageCirc
 function Card({ p }: { p: Project }) {
   const Icon = ICONS[p.icon];
   const [expanded, setExpanded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isCentered, setIsCentered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 480);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsCentered(entry.isIntersecting);
+      },
+      {
+        rootMargin: '-15% 0px -15% 0px',
+        threshold: 0.2,
+      }
+    );
+    const el = cardRef.current;
+    if (el) {
+      observer.observe(el);
+    }
+    return () => {
+      if (el) {
+        observer.unobserve(el);
+      }
+    };
+  }, [isMobile]);
+
+  const isActiveCard = isMobile && (isCentered || (p.id === '00' && scrollY < 120));
+
   return (
-    <div className={`path-card accent-${p.accent}`}>
+    <div ref={cardRef} className={`path-card accent-${p.accent} ${isActiveCard ? 'active-card' : ''}`}>
       <div className="path-card-head">
         <Icon size={22} strokeWidth={1.5} />
         <span className="project-date">{p.date}</span>
@@ -19,11 +67,13 @@ function Card({ p }: { p: Project }) {
       </div>
       <h3 className="project-name">{p.name}</h3>
       <p className={`project-desc ${expanded ? 'is-expanded' : ''}`}>{p.desc}</p>
+      
       <button className="desc-toggle" onClick={() => setExpanded(e => !e)} aria-expanded={expanded}>
         {expanded ? 'Show less' : 'Read more'}
         <ChevronDown size={13} strokeWidth={2.2} className={expanded ? 'flip' : ''} />
       </button>
-      {p.note && <p className="project-note">{p.note}</p>}
+
+      {p.note && expanded && <p className="project-note">{p.note}</p>}
       <div className="project-tech">
         {p.tech.map(t => <span className="tech-pill" key={t}>{t}</span>)}
       </div>
