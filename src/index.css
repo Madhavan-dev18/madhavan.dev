@@ -211,7 +211,8 @@ img {
 
 /* ---------- Hero ---------- */
 .hero {
-  padding: 160px 0 100px;
+  padding-top: 160px;
+  padding-bottom: 100px;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -341,14 +342,15 @@ img {
 
 @media (max-width: 640px) {
   .metric-strip { grid-template-columns: 1fr; gap: 20px; }
-  .hero { padding: 100px 0 48px; }
-  .section { padding: 56px 0; }
+  .hero { padding-top: 100px; padding-bottom: 48px; }
+  .section { padding-top: 56px; padding-bottom: 56px; }
   .section-head { margin-bottom: 28px; }
 }
 
 /* ---------- Section scaffolding ---------- */
 .section {
-  padding: 96px 0;
+  padding-top: 96px;
+  padding-bottom: 96px;
   border-top: 1px solid var(--hairline);
 }
 
@@ -881,7 +883,8 @@ img {
     padding: 0 16px;
   }
   .section {
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
   .section-head {
     margin-bottom: 36px;
@@ -894,7 +897,8 @@ img {
   
   /* Hero Section */
   .hero {
-    padding: 128px 0 64px;
+    padding-top: 128px;
+    padding-bottom: 64px;
     gap: 24px;
   }
   .hero-title {
