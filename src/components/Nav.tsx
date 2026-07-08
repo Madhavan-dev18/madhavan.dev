@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const LINKS = [
   { href: '#projects', label: 'Projects' },
@@ -38,13 +39,21 @@ export default function Nav({ isDark, onToggleTheme }: { isDark: boolean; onTogg
           </div>
         </div>
       </header>
-      {open && (
-        <div className="mobile-nav-panel">
-          {LINKS.map(l => (
-            <a key={l.href} href={l.href} className="nav-link" onClick={() => setOpen(false)}>{l.label}</a>
-          ))}
-        </div>
-      )}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="mobile-nav-panel"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
+          >
+            {LINKS.map(l => (
+              <a key={l.href} href={l.href} className="nav-link" onClick={() => setOpen(false)}>{l.label}</a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

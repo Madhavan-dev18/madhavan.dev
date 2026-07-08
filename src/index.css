@@ -70,6 +70,7 @@ img {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .container {
@@ -154,6 +155,17 @@ img {
   background: transparent;
   color: var(--ink-soft);
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  position: relative;
+}
+
+.theme-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
 }
 
 .theme-toggle:hover {
@@ -166,6 +178,10 @@ img {
   border: none;
   background: none;
   color: var(--ink);
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-nav-panel {
@@ -409,7 +425,7 @@ img {
 .path-row-right { justify-content: flex-end; }
 
 .path-node {
-  display: none;
+  display: block;
   position: absolute;
   left: var(--px);
   top: 50%;
@@ -558,6 +574,18 @@ img {
   font-weight: 600;
   color: var(--ink);
   width: fit-content;
+  position: relative;
+}
+
+@media (max-width: 860px) {
+  .project-link::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    left: -8px;
+    right: -8px;
+  }
 }
 
 .project-link svg {
@@ -738,4 +766,108 @@ img {
 
 @media (max-width: 600px) {
   .footer { flex-direction: column; gap: 8px; text-align: center; }
+}
+
+/* ---------- Certificates badges layout on mobile ---------- */
+@media (max-width: 560px) {
+  .cert-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    line-height: 1.4;
+  }
+  .cert-line span {
+    display: inline-flex;
+    align-items: center;
+  }
+  .cert-line a {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 14px;
+    font-size: 13px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease);
+    min-height: 44px; /* Touch target */
+  }
+  .cert-line a:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .cert-sep {
+    display: none; /* Hide separating bullets */
+  }
+  .cert-issuer-note {
+    width: 100%;
+    margin-top: 8px;
+    display: block;
+  }
+}
+
+/* ---------- Mobile UX & Layout Optimization (<= 480px) ---------- */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .hero-title {
+    font-size: clamp(30px, 8vw, 42px);
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 8px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 44px;
+  }
+  .metric {
+    padding-right: 0;
+  }
+  
+  /* Projects Section */
+  .path-row-left .path-card, 
+  .path-row-right .path-card {
+    width: calc(100% - 36px);
+    margin-left: 36px;
+    padding: 20px 16px; /* Reduce horizontal padding to save content area space */
+  }
+  .path-node {
+    left: 14px; /* Reposition node slightly to align with the reduced margin */
+  }
+  .path-card-head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .project-date {
+    margin-left: 0;
+  }
+  .project-flag {
+    margin-left: auto;
+  }
+  .project-link-row {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  /* Contact Section */
+  .contact-panel {
+    padding: 24px 16px;
+    gap: 14px;
+  }
+  .contact-links {
+    flex-direction: column;
+    width: 100%;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .contact-links .btn {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 44px;
+  }
 }
