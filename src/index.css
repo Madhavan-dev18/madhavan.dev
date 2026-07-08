@@ -485,15 +485,49 @@ img {
 [data-theme='dark'] .accent-coral .path-card-head svg:first-child { background: #2c1a10; color: #f0997b; }
 
 @media (max-width: 860px) {
-  .path-row-left, .path-row-right { justify-content: center; }
-  .path-row-left .path-card, .path-row-right .path-card {
-    width: calc(100% - 60px);
-    margin-left: 60px;
-    margin-right: 0;
+  .path-row-left, .path-row-right,
+  .path-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: auto;
+    padding: 18px 0;
+    gap: 10px;
   }
-  .path-node { left: 20px; }
+  .path-row-left .path-card, .path-row-right .path-card {
+    width: calc(100% - 32px);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .path-node {
+    position: static;
+    left: auto;
+    top: auto;
+    transform: none;
+    margin: 0;
+  }
+  .path-card {
+    border-color: var(--ink-faint);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  [data-theme='dark'] .path-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  }
   .path-svg { display: none; }
-  .path-row { min-height: auto; padding: 20px 0; }
+
+  .project-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .project-desc.is-expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    overflow: visible;
+  }
+  .desc-toggle { display: inline-flex; }
 }
 
 .project-top {
@@ -532,6 +566,28 @@ img {
   font-size: 14.5px;
   line-height: 1.65;
   color: var(--ink-soft);
+}
+
+.desc-toggle {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--accent);
+  width: fit-content;
+  margin-top: -6px;
+}
+
+.desc-toggle svg {
+  transition: transform 0.2s var(--ease);
+}
+
+.desc-toggle svg.flip {
+  transform: rotate(180deg);
 }
 
 .project-tech {
@@ -829,14 +885,11 @@ img {
   }
   
   /* Projects Section */
-  .path-row-left .path-card, 
+  .path-row-left .path-card,
   .path-row-right .path-card {
-    width: calc(100% - 36px);
-    margin-left: 36px;
+    width: calc(100% - 24px);
+    margin: 0 auto;
     padding: 20px 16px; /* Reduce horizontal padding to save content area space */
-  }
-  .path-node {
-    left: 14px; /* Reposition node slightly to align with the reduced margin */
   }
   .path-card-head {
     flex-wrap: wrap;
