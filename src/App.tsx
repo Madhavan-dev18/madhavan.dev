@@ -17,8 +17,10 @@ export default function App() {
   useEffect(() => {
     if (isDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
     } else {
       document.documentElement.removeAttribute('data-theme');
+      document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#f6f7fb');
     }
   }, [isDark]);
 
@@ -52,6 +54,12 @@ export default function App() {
 
   return (
     <div className="site">
+      <a 
+        href="#top" 
+        className="skip-link"
+      >
+        Skip to content
+      </a>
       <Nav isDark={isDark} onToggleTheme={() => setIsDark(d => !d)} />
       <main>
         <Hero />
@@ -66,7 +74,7 @@ export default function App() {
       </footer>
 
       {/* Floating Bottom App Nav Bar for Mobile */}
-      <nav className="bottom-nav">
+      <nav className="bottom-nav" aria-label="Section navigation">
         <button 
           className={`bottom-nav-item ${activeSection === 'top' ? 'active' : ''}`}
           onClick={() => scrollToSection('top')}

@@ -14,7 +14,6 @@ export default function Experience() {
         <Reveal>
           <div className="section-head">
             <div>
-              <div className="section-kicker">Background</div>
               <h2 className="section-title">Experience &amp; education</h2>
             </div>
           </div>
@@ -43,7 +42,6 @@ export default function Experience() {
         <Reveal>
           <div className="section-head">
             <div>
-              <div className="section-kicker">Toolbox</div>
               <h2 className="section-title">Skills</h2>
             </div>
           </div>

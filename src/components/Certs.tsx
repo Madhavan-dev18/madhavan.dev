@@ -7,7 +7,6 @@ export default function Certs() {
       <Reveal>
         <div className="section-head">
           <div>
-            <div className="section-kicker">Credentials</div>
             <h2 className="section-title">Coursework &amp; certificates</h2>
           </div>
         </div>

@@ -131,24 +131,28 @@ export default function Projects() {
         <button 
           className={`filter-pill ${filter === 'all' ? 'active' : ''}`}
           onClick={() => setFilter('all')}
+          aria-pressed={filter === 'all'}
         >
           All
         </button>
         <button 
           className={`filter-pill ${filter === 'web' ? 'active' : ''}`}
           onClick={() => setFilter('web')}
+          aria-pressed={filter === 'web'}
         >
           Web Apps
         </button>
         <button 
           className={`filter-pill ${filter === 'ai' ? 'active' : ''}`}
           onClick={() => setFilter('ai')}
+          aria-pressed={filter === 'ai'}
         >
           AI &amp; Vision
         </button>
         <button 
           className={`filter-pill ${filter === 'backend' ? 'active' : ''}`}
           onClick={() => setFilter('backend')}
+          aria-pressed={filter === 'backend'}
         >
           Backend / APIs
         </button>
