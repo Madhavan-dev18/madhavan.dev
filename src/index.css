@@ -631,6 +631,9 @@ img {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: auto;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .tech-pill {
@@ -693,6 +696,9 @@ img {
 .timeline {
   display: flex;
   flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .timeline-item {
@@ -745,6 +751,9 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .skill-card {
@@ -765,6 +774,9 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .skill-tag {

@@ -19,10 +19,10 @@ export default function Experience() {
           </div>
         </Reveal>
 
-        <div className="timeline">
+        <ol className="timeline">
           {EXP.map((e, i) => (
             <Reveal key={i} delay={i * 0.05}>
-              <div className="timeline-item">
+              <li className="timeline-item">
                 <div className="timeline-date">
                   <div className="timeline-avatar">{getInitials(e.label)}</div>
                   <span className="timeline-date-text">{e.date}</span>
@@ -32,10 +32,10 @@ export default function Experience() {
                   <div className="timeline-label">{e.label}</div>
                   <p className="timeline-desc">{e.desc}</p>
                 </div>
-              </div>
+              </li>
             </Reveal>
           ))}
-        </div>
+        </ol>
       </section>
 
       <section id="skills" className="container section">
@@ -47,18 +47,18 @@ export default function Experience() {
           </div>
         </Reveal>
 
-        <div className="skills-grid">
+        <ul className="skills-grid">
           {SKILLS.map((g, i) => (
             <Reveal key={g.category} delay={i * 0.05}>
-              <div className="skill-card">
+              <li className="skill-card">
                 <h3 className="skill-category">{g.category}</h3>
-                <div className="skill-items">
-                  {g.items.map(s => <span className="skill-tag" key={s}>{s}</span>)}
-                </div>
-              </div>
+                <ul className="skill-items">
+                  {g.items.map(s => <li className="skill-tag" key={s}>{s}</li>)}
+                </ul>
+              </li>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </section>
     </>
   );

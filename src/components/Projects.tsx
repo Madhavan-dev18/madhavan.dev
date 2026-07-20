@@ -59,7 +59,7 @@ function Card({ p }: { p: Project }) {
   const isActiveCard = isMobile && (isCentered || (p.id === '00' && scrollY < 120));
 
   return (
-    <div ref={cardRef} className={`path-card accent-${p.accent} ${isActiveCard ? 'active-card' : ''}`}>
+    <article ref={cardRef} className={`path-card accent-${p.accent} ${isActiveCard ? 'active-card' : ''}`}>
       <div className="path-card-head">
         <Icon size={22} strokeWidth={1.5} />
         <span className="project-date">{p.date}</span>
@@ -74,9 +74,9 @@ function Card({ p }: { p: Project }) {
       </button>
 
       {p.note && expanded && <p className="project-note">{p.note}</p>}
-      <div className="project-tech">
-        {p.tech.map(t => <span className="tech-pill" key={t}>{t}</span>)}
-      </div>
+      <ul className="project-tech">
+        {p.tech.map(t => <li className="tech-pill" key={t}>{t}</li>)}
+      </ul>
       <div className="project-link-row">
         <a href={p.live} target="_blank" rel="noopener noreferrer" className="project-link">
           {p.live.includes('github.com') ? 'View source' : 'View live'}
@@ -88,7 +88,7 @@ function Card({ p }: { p: Project }) {
           </a>
         )}
       </div>
-    </div>
+    </article>
   );
 }
 

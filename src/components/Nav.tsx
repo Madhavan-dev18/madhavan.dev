@@ -63,7 +63,7 @@ export default function Nav({ isDark, onToggleTheme }: { isDark: boolean; onTogg
       <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
           <a href="#top" className="nav-brand">Madhavan S.</a>
-          <nav className="nav-links">
+          <nav className="nav-links" aria-label="Main navigation">
             {LINKS.map(l => <a key={l.href} href={l.href} className="nav-link">{l.label}</a>)}
           </nav>
           <div className="nav-actions">
