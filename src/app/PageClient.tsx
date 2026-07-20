@@ -1,16 +1,11 @@
+"use client";
+
 import { useEffect, useState } from 'react';
-import './index.css';
-
-import Nav from './components/Nav';
-import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Certs from './components/Certs';
-import Contact from './components/Contact';
-
+import Nav from '../components/Nav';
+import { MotionConfig } from 'motion/react';
 import { Home, Folder, Briefcase, Cpu, Mail } from 'lucide-react';
 
-export default function App() {
+export default function PageClient({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = useState(false);
   const [activeSection, setActiveSection] = useState('top');
 
@@ -53,28 +48,14 @@ export default function App() {
   };
 
   return (
-    <div className="site">
-      <a 
-        href="#top" 
-        className="skip-link"
-      >
-        Skip to content
-      </a>
-      <Nav isDark={isDark} onToggleTheme={() => setIsDark(d => !d)} />
-      <main>
-        <Hero />
-        <Projects />
-        <Experience />
-        <Certs />
-        <Contact />
-      </main>
-      <footer className="footer container">
-        <span>© {new Date().getFullYear()} Madhavan Shivakumar</span>
-        <span>Built with React, TypeScript &amp; Motion</span>
-      </footer>
+    <MotionConfig reducedMotion="user">
+      <div className="site">
+        <a href="#top" className="skip-link">Skip to content</a>
+        <Nav isDark={isDark} onToggleTheme={() => setIsDark(d => !d)} />
+        
+        {children}
 
-      {/* Floating Bottom App Nav Bar for Mobile */}
-      <nav className="bottom-nav" aria-label="Section navigation">
+        <nav className="bottom-nav" aria-label="Section navigation">
         <button 
           className={`bottom-nav-item ${activeSection === 'top' ? 'active' : ''}`}
           onClick={() => scrollToSection('top')}
@@ -116,6 +97,7 @@ export default function App() {
           <span>Contact</span>
         </button>
       </nav>
-    </div>
+      </div>
+    </MotionConfig>
   );
 }

@@ -1,3 +1,4 @@
+"use client";
 import { EXP, SKILLS } from '../data';
 import Reveal from './Reveal';
 

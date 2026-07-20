@@ -18,6 +18,7 @@ node_modules/
 .env.production.local
 
 # Build outputs
+.next/
 build/
 dist/
 dist-ssr/

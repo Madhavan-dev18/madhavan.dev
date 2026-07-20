@@ -1,6 +1,7 @@
+"use client";
 import { useEffect, useState, useRef } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
-import { motion, AnimatePresence, useReducedMotion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 
 const LINKS = [
   { href: '#projects', label: 'Projects' },
@@ -14,7 +15,6 @@ export default function Nav({ isDark, onToggleTheme }: { isDark: boolean; onTogg
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
-  const prefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -56,8 +56,6 @@ export default function Nav({ isDark, onToggleTheme }: { isDark: boolean; onTogg
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, [open]);
 
-  const yOffset = prefersReducedMotion ? 0 : -10;
-
   return (
     <div ref={navRef}>
       <header className={`nav ${scrolled ? 'scrolled' : ''}`}>
@@ -80,9 +78,9 @@ export default function Nav({ isDark, onToggleTheme }: { isDark: boolean; onTogg
         {open && (
           <motion.div
             className="mobile-nav-panel"
-            initial={{ opacity: 0, y: yOffset }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: yOffset }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: 'easeInOut' }}
           >
             {LINKS.map(l => (

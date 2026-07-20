@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
 import { ArrowUpRight, Github, ShieldCheck, Sprout, Bus, MessageCircle, PlayCircle, ChevronDown } from 'lucide-react';
@@ -67,7 +68,7 @@ function Card({ p }: { p: Project }) {
       </div>
       <h3 className="project-name">{p.name}</h3>
       <p className={`project-desc ${expanded ? 'is-expanded' : ''}`}>{p.desc}</p>
-      
+
       <button className="desc-toggle" onClick={() => setExpanded(e => !e)} aria-expanded={expanded}>
         {expanded ? 'Show less' : 'Read more'}
         <ChevronDown size={13} strokeWidth={2.2} className={expanded ? 'flip' : ''} />
@@ -128,28 +129,28 @@ export default function Projects() {
 
       {/* Horizontal scrolling filter pills for mobile */}
       <div className="project-filters">
-        <button 
+        <button
           className={`filter-pill ${filter === 'all' ? 'active' : ''}`}
           onClick={() => setFilter('all')}
           aria-pressed={filter === 'all'}
         >
           All
         </button>
-        <button 
+        <button
           className={`filter-pill ${filter === 'web' ? 'active' : ''}`}
           onClick={() => setFilter('web')}
           aria-pressed={filter === 'web'}
         >
           Web Apps
         </button>
-        <button 
+        <button
           className={`filter-pill ${filter === 'ai' ? 'active' : ''}`}
           onClick={() => setFilter('ai')}
           aria-pressed={filter === 'ai'}
         >
           AI &amp; Vision
         </button>
-        <button 
+        <button
           className={`filter-pill ${filter === 'backend' ? 'active' : ''}`}
           onClick={() => setFilter('backend')}
           aria-pressed={filter === 'backend'}
@@ -158,7 +159,7 @@ export default function Projects() {
         </button>
       </div>
 
-      <div className="path-track" ref={trackRef}>
+      <div className="path-track" ref={trackRef} style={{ position: 'relative' }}>
         <svg className="path-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
           <path d={d} className="path-track-bg" vectorEffect="non-scaling-stroke" fill="none" />
           <motion.path
@@ -171,7 +172,7 @@ export default function Projects() {
         </svg>
 
         {PROJECTS.map((p, i) => {
-          const isVisible = filter === 'all' || 
+          const isVisible = filter === 'all' ||
             (filter === 'web' && p.tech.some(t => t.toLowerCase().includes('react') || t.toLowerCase().includes('next.js'))) ||
             (filter === 'ai' && p.tech.some(t => t.toLowerCase().includes('gemini') || t.toLowerCase().includes('genkit') || t.toLowerCase().includes('roberta') || t.toLowerCase().includes('face-api'))) ||
             (filter === 'backend' && p.tech.some(t => t.toLowerCase().includes('django') || t.toLowerCase().includes('flask') || t.toLowerCase().includes('trpc') || t.toLowerCase().includes('celery') || t.toLowerCase().includes('redis') || t.toLowerCase().includes('postgresql')));

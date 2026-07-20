@@ -1,3 +1,4 @@
+"use client";
 import { Mail, Github, Linkedin } from 'lucide-react';
 import Reveal from './Reveal';
 

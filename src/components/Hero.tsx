@@ -1,10 +1,10 @@
-import { motion, useReducedMotion } from 'motion/react';
+"use client";
+import { motion } from 'motion/react';
 
 export default function Hero() {
-  const prefersReducedMotion = useReducedMotion();
 
   const anim = (yOffset: number, delay = 0) => ({
-    initial: { opacity: 0, y: prefersReducedMotion ? 0 : yOffset },
+    initial: { opacity: 0, y: yOffset },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }
   });

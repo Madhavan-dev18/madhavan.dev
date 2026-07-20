@@ -12,8 +12,6 @@
   --radius-md: 16px;
   --radius-sm: 10px;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
-  --font-display: 'Bricolage Grotesque', Georgia, serif;
-  --font-sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --z-nav: 100;
   --z-nav-panel: 99;
   --z-modal: 200;

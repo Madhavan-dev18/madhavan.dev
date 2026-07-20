@@ -1,3 +1,4 @@
+"use client";
 import { CERTS } from '../data';
 import Reveal from './Reveal';
 
