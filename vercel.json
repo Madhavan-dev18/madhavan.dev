@@ -1,5 +1,4 @@
 {
-  "outputDirectory": ".next",
   "headers": [
     {
       "source": "/(.*)\\.(png|jpg|jpeg|gif|svg|webp|ico)",
