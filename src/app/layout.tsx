@@ -45,8 +45,11 @@ export const metadata: Metadata = {
     images: ['https://madhavan-shivakumar-dev.vercel.app/og-image.png'],
   },
   icons: {
-    icon: '/logo.png',
-    apple: '/logo.png',
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    apple: '/favicon.png',
+    shortcut: '/favicon.png',
   },
 };
 
