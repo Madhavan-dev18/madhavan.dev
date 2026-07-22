@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: 'Madhavan Shivakumar Portfolio',
     images: [
       {
-        url: 'https://madhavan-shivakumar-dev.vercel.app/og-image.png',
+        url: 'https://madhavan-shivakumar-dev.vercel.app/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Madhavan Shivakumar Portfolio',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Madhavan Shivakumar | Full-Stack & AI Engineer',
     description: 'Full-Stack & AI Engineer — Django, Next.js, multi-tenant architecture, 100+ tests across five shipped projects.',
-    images: ['https://madhavan-shivakumar-dev.vercel.app/og-image.png'],
+    images: ['https://madhavan-shivakumar-dev.vercel.app/og-image.jpg'],
   },
   icons: {
     icon: [
